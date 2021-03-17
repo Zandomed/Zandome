@@ -1,3 +1,8 @@
+const { version } = require('./package.json');
+require('dotenv').config({
+   path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
    siteMetadata: {
       title: `Zandome`,
@@ -34,8 +39,16 @@ module.exports = {
          options: {
             // You can add multiple tracking ids and a pageview event will be fired for all of them.
             trackingIds: [
-               'UA-144617399-3', // Google Analytics / GA
+               process.env.GOOGLE_ANALYTICS_UID, // Google Analytics / GA
             ],
+         },
+      },
+      {
+         resolve: '@sentry/gatsby',
+         options: {
+            dsn: process.env.SENTRY_ID,
+            sampleRate: 1.0,
+            release: version,
          },
       },
       // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -5,7 +5,9 @@
   "version": "0.0.1",
   "author": "Miguel Mendoza <miguelemrdev@gmail.com>",
   "dependencies": {
+    "@sentry/gatsby": "^6.2.0",
     "babel-plugin-styled-components": "^1.12.0",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-google-gtag": "^2.5.0",
