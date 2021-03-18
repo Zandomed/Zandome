@@ -6,6 +6,7 @@ import Image from '../components/image';
 import SEO from '../components/seo';
 import { HomeStyle } from '../styles/home-style';
 import ItemNavbar from '../components/item-navbar';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const IndexPage: React.FC<PageProps<void>> = () => (
    <Fragment>
@@ -17,7 +18,12 @@ const IndexPage: React.FC<PageProps<void>> = () => (
                marginBottom: `1.45rem`,
                width: '250px',
             }}>
-            <Image />
+            <StaticImage
+               src="../images/zandome.png"
+               alt="Zandome Logo"
+               placeholder="tracedSVG"
+               width={250}
+            />
          </div>
          <div style={{ marginTop: '2rem' }}>
             <span style={{ fontSize: '25px', fontWeight: 'bold' }}>
