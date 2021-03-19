@@ -2,7 +2,7 @@
   "name": "zandome",
   "private": true,
   "description": "Web for Zandome",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Miguel Mendoza <miguelemrdev@gmail.com>",
   "dependencies": {
     "@sentry/gatsby": "^6.2.0",
