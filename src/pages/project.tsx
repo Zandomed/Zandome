@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
-import { Link, PageProps } from 'gatsby';
-
-import Layout from '../components/layout';
+import { PageProps } from 'gatsby';
 import SEO from '../components/seo';
 
 const ProjectPage: React.FC<PageProps<void>> = () => (

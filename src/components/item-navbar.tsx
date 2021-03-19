@@ -1,53 +1,54 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { ItemNavbarStyle } from '../styles/item-navbar-style';
-
+import { ItemNavbarStyle as S } from '../styles';
+import PropTypes from 'prop-types';
 type DataProps = {
    title: string;
    to: string;
-   width?: string;
+   // width?: string;
 };
 
-const ItemNavbar: React.FC<DataProps> = ({ title, to, width }) => {
+const ItemNavbar: React.FC<DataProps> = ({ title, to }) => {
+   const gradientColors = [
+      {
+         offset: '0',
+         color: '#007297',
+      },
+      {
+         offset: '0.4133',
+         color: '#00A0AF',
+      },
+      {
+         offset: '0.895',
+         color: '#1DCAD3',
+      },
+   ];
+
    return (
-      <ItemNavbarStyle>
-         <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <S.WrapperItemNavbar>
+         <S.SvgElement>
             <defs>
-               <linearGradient
-                  id="gradient"
-                  gradientUnits="userSpaceOnUse"
-                  x1="52.4396"
-                  y1="100.1121"
-                  x2="247.4757"
-                  y2="25.1088">
-                  <stop offset="0" style={{ stopColor: '#007297' }} />
-                  <stop offset="0.4133" style={{ stopColor: '#00A0AF' }} />
-                  <stop offset="0.895" style={{ stopColor: '#1DCAD3' }} />
-               </linearGradient>
+               <S.LinearGradient>
+                  {gradientColors.map((stop, i: number) => (
+                     <S.LinearGradientStop key={i} {...stop} />
+                  ))}
+               </S.LinearGradient>
             </defs>
-            <rect
-               // stroke="url(#gradient)"
-               className="shape"
-               height="32px"
-               width={width ? `calc(${width} - 10px)` : '90%'}
-               x="5"
-               y="5"
-               rx="5"
-            />
-            <foreignObject
-               className="node"
-               x="0"
-               y="0"
-               height="100%"
-               width="100%"></foreignObject>
-         </svg>
+            <S.RectElement />
+            <S.ForeignObjectElement />
+         </S.SvgElement>
          <Link to={to}>
-            <div className="text">
-               <span>{title}</span>
-            </div>
+            <S.WrapperText>
+               <S.Text>{title}</S.Text>
+            </S.WrapperText>
          </Link>
-      </ItemNavbarStyle>
+      </S.WrapperItemNavbar>
    );
+};
+
+ItemNavbar.propTypes = {
+   title: PropTypes.string.isRequired,
+   to: PropTypes.string.isRequired,
 };
 
 export default ItemNavbar;

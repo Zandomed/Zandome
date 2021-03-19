@@ -1,8 +1,5 @@
-// If you don't want to use TypeScript you can delete this file!
 import React, { Fragment } from 'react';
-import { PageProps, Link, graphql } from 'gatsby';
-
-import Layout from '../components/layout';
+import { PageProps, graphql } from 'gatsby';
 import SEO from '../components/seo';
 
 type DataProps = {
