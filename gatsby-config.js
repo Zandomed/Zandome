@@ -50,6 +50,7 @@ module.exports = {
             dsn: process.env.SENTRY_ID,
             sampleRate: 1.0,
             release: version,
+            environment: process.env.NODE_ENV
          },
       },
       // this (optional) plugin enables Progressive Web App + Offline functionality
