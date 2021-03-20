@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 type DataProps = {
    title: string;
    to: string;
+   active?: boolean;
    // width?: string;
 };
 
-const ItemNavbar: React.FC<DataProps> = ({ title, to }) => {
+const ItemNavbar: React.FC<DataProps> = ({ title, to, active = false }) => {
    const gradientColors = [
       {
          offset: '0',
@@ -25,7 +26,7 @@ const ItemNavbar: React.FC<DataProps> = ({ title, to }) => {
    ];
 
    return (
-      <S.WrapperItemNavbar>
+      <S.WrapperItemNavbar active={active}>
          <S.SvgElement>
             <defs>
                <S.LinearGradient>
@@ -49,6 +50,11 @@ const ItemNavbar: React.FC<DataProps> = ({ title, to }) => {
 ItemNavbar.propTypes = {
    title: PropTypes.string.isRequired,
    to: PropTypes.string.isRequired,
+   active: PropTypes.bool,
+};
+
+ItemNavbar.defaultProps = {
+   active: false,
 };
 
 export default ItemNavbar;
