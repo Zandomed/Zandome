@@ -17,7 +17,12 @@ const IndexPage: React.FC<PageProps<void>> = () => (
             />
          </S.ContainerLogo>
          <S.ContainerText>
-            <span>Comming Soon . . .</span>
+            <span>
+               Comming Soon
+               <S.Dot>.</S.Dot>
+               <S.Dot>.</S.Dot>
+               <S.Dot>.</S.Dot>
+            </span>
          </S.ContainerText>
       </S.Container>
    </Fragment>
