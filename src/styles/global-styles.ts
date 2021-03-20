@@ -65,27 +65,36 @@ const stylesGlobals = css`
       height: 100%;
       width: 100%;
    }
-   /* 
-   *::-webkit-scrollbar,
-*::-webkit-scrollbar-thumb {
-  width: 26px;
-  border-radius: 13px;
-  background-clip: padding-box;
-  border: 10px solid transparent;
-}
 
-*::-webkit-scrollbar-thumb {        
-  box-shadow: inset 0 0 0 10px;
-} */
+   * {
+      box-sizing: border-box;
 
-   /* *::-webkit-scrollbar-button:start:decrement,
-   *::-webkit-scrollbar-button:end:increment {
-      height: 5px;
-      display: block;
-   } */
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-thumb {
+         width: 18px;
+         border-radius: 20px;
+         border: 5px solid transparent;
+      }
 
-   /* * {
-      scrollbar-color: #999 transparent;
-   } */
+      &::-webkit-scrollbar-thumb {
+         /* box-shadow: inset 0 0 0 10px; */
+         background: #999;
+         /* background-repeat: no-repeat !important; */
+         background-clip: padding-box !important;
+
+         &:hover {
+            /* background: linear-gradient(#e66447, #919845); */
+         }
+      }
+
+      &::-webkit-scrollbar-button {
+         display: none;
+         visibility: none;
+      }
+
+      &::-webkit-scrollbar-corner {
+         background-color: transparent;
+      }
+   }
 `;
 export const GlobalStyles = createGlobalStyle`${stylesGlobals}`;
