@@ -28,6 +28,7 @@ type DataProps = {
 
 const Layout: React.FC<DataProps> = ({ children }) => {
    const [showLayout, setShowLayout] = useState(false);
+   const [urlPathActive, setUrlPathActive] = useState('/');
    // console.log(window.location);
 
    useEffect(() => {
@@ -37,8 +38,9 @@ const Layout: React.FC<DataProps> = ({ children }) => {
       );
    });
 
-   const _toggleShowLayout = (location: HistoryLocation): void => {
-      setShowLayout(location.pathname !== '/');
+   const _toggleShowLayout = ({ pathname }: HistoryLocation): void => {
+      setUrlPathActive(pathname);
+      setShowLayout(pathname !== '/');
    };
 
    const data = useStaticQuery(graphql`
@@ -55,7 +57,10 @@ const Layout: React.FC<DataProps> = ({ children }) => {
       if (showLayout) {
          return (
             <Fragment>
-               <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+               <Header
+                  siteTitle={data.site.siteMetadata?.title || `Title`}
+                  urlActive={urlPathActive}
+               />
                <div
                   style={{
                      margin: `0 auto`,

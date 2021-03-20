@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const SvgElement = styled.svg.attrs({
    height: '100%',
@@ -9,16 +9,16 @@ export const SvgElement = styled.svg.attrs({
    height: 100%;
 `;
 
-export const RectElement = styled.rect.attrs((props) => ({
+export const RectElement = styled.rect.attrs({
    x: '5',
    y: '5',
    rx: '5',
-}))`
+})`
    height: 32px;
    width: ${(props) =>
       props.width ? 'calc(' + props.width + ' - 10px)' : '90%'};
    stroke-dasharray: 40 230;
-   stroke-dashoffset: -151;
+   stroke-dashoffset: -153;
    stroke-width: 2.5px;
    fill: transparent;
    border-radius: 20px;
@@ -70,7 +70,7 @@ export const Text = styled.span`
    color: white;
 `;
 
-export const WrapperItemNavbar = styled.div`
+export const WrapperItemNavbar = styled.div<{ active: boolean }>`
    flex-grow: 1;
    width: 112px;
    height: 40px;
@@ -87,6 +87,16 @@ export const WrapperItemNavbar = styled.div`
          cursor: pointer;
       }
    }
+
+   ${(props) =>
+      props.active &&
+      css`
+         ${RectElement} {
+            stroke-width: 3px;
+            stroke-dashoffset: 0;
+            stroke-dasharray: 260;
+         }
+      `}
 
    &:not(:last-child) {
       margin-right: 1em;

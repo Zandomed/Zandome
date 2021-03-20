@@ -5,9 +5,15 @@ import { HeaderStyle as S } from '../styles';
 
 type DataProps = {
    siteTitle: string;
+   urlActive: string;
 };
 
-const Header: React.FC<DataProps> = ({ siteTitle }) => {
+const Header: React.FC<DataProps> = ({ siteTitle, urlActive }) => {
+   const isActiveItemNavbar = (expresionRegExp: RegExp) => {
+      const result = urlActive.match(expresionRegExp);
+      return result ? result.length > 0 : false;
+   };
+
    return (
       <S.Header>
          <S.WrapperHeader>
@@ -15,8 +21,18 @@ const Header: React.FC<DataProps> = ({ siteTitle }) => {
                <S.Title>{siteTitle}</S.Title>
             </S.WrapperTitle>
             <S.Navbar>
-               <ItemNavbar title={'projects'} to={'/project'} />
-               <ItemNavbar title={'about'} to={'/about'} />
+               <ItemNavbar
+                  title={'projects'}
+                  to={'/projects'}
+                  active={isActiveItemNavbar(
+                     new RegExp(/projects(\/.*)*/, 'gm'),
+                  )}
+               />
+               <ItemNavbar
+                  title={'about'}
+                  to={'/about'}
+                  active={isActiveItemNavbar(new RegExp(/about(\/.*)*/, 'gm'))}
+               />
             </S.Navbar>
          </S.WrapperHeader>
       </S.Header>
@@ -25,10 +41,12 @@ const Header: React.FC<DataProps> = ({ siteTitle }) => {
 
 Header.propTypes = {
    siteTitle: PropTypes.string.isRequired,
+   urlActive: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {
    siteTitle: '',
+   urlActive: '/',
 };
 
 export default Header;
