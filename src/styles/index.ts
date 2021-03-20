@@ -8,3 +8,4 @@ export * as IndexStyle from './pages/index.style';
  */
 export * as HeaderStyle from './components/header.style';
 export * as ItemNavbarStyle from './components/item-navbar.style';
+export * as TileProject from './components/tile-project.style';
