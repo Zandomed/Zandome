@@ -1,17 +1,4 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import React, {
-   Component,
-   Fragment,
-   ReactNodeArray,
-   useEffect,
-   useState,
-} from 'react';
+import React, { Fragment, ReactNodeArray, useEffect, useState } from 'react';
 import PropTypes, { ReactElementLike } from 'prop-types';
 import { useStaticQuery, graphql, withPrefix } from 'gatsby';
 import {
@@ -21,6 +8,9 @@ import {
 } from '@reach/router';
 
 import Header from './header';
+import Footer from './footer';
+
+import { LayoutStyle as S } from '../styles';
 
 type DataProps = {
    children: string | number | boolean | {} | ReactElementLike | ReactNodeArray;
@@ -61,26 +51,12 @@ const Layout: React.FC<DataProps> = ({ children }) => {
                   siteTitle={data.site.siteMetadata?.title || `Title`}
                   urlActive={urlPathActive}
                />
-               <div
-                  style={{
-                     margin: `0 auto`,
-                     maxWidth: 960,
-                     padding: `3.5rem 1.0875rem 1.45rem`,
-                  }}>
-                  <main>{children}</main>
-                  <footer
-                     style={{
-                        marginTop: `2rem`,
-                     }}>
-                     © {new Date().getFullYear()}. Zandome
-                     {/* {` `}
-                     <a href="https://www.gatsbyjs.com">Gatsby</a> */}
-                  </footer>
-               </div>
+               <S.Main>{children}</S.Main>
+               <Footer />
             </Fragment>
          );
       } else {
-         return <main>{children}</main>;
+         return <S.Main viewportHeight={true}>{children}</S.Main>;
       }
    };
 

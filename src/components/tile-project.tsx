@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TileProject as S } from '../styles';
+import { TileProjectStyle as S } from '../styles';
 
 export const TileProject: React.FC<any> = (props) => {
    return (
