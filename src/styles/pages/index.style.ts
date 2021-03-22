@@ -4,15 +4,18 @@ export const Container = styled.div`
    width: 100%;
    height: 100%;
    display: flex;
+   z-index: 5;
    justify-content: center;
    align-items: center;
    flex-direction: column;
 `;
 
 export const ContainerLogo = styled.div`
-   max-width: 250px;
+   max-width: 200px;
    margin-bottom: 1.45rem;
-   width: 250px;
+   /* width: 250px; */
+   transform: scale(0);
+   opacity: 0;
 `;
 
 export const ContainerText = styled.div`
