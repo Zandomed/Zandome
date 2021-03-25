@@ -4,7 +4,7 @@ import SEO from '../components/seo';
 import TileProject from '../components/tile-project';
 
 const ProjectPage: React.FC<PageProps<void>> = () => {
-   const project = Array.from({ length: 50 });
+   const project = Array.from({ length: 0 });
 
    return (
       <Fragment>
