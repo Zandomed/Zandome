@@ -6,7 +6,6 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { gsap } from 'gsap';
 import Particles from 'react-tsparticles';
 const IndexPage: React.FC<PageProps<void>> = () => {
-   const logoRef = useRef(null);
    const [optionsParticles, setOptionsParticles] = useState({
       background: {
          color: {
@@ -28,7 +27,7 @@ const IndexPage: React.FC<PageProps<void>> = () => {
             // },
             onDiv: {
                enable: true,
-               selectors: '.container-logo-example',
+               selectors: '#container',
                mode: 'repulse',
                type: 'rectangle',
             },
@@ -98,7 +97,7 @@ const IndexPage: React.FC<PageProps<void>> = () => {
                enable: true,
             },
             limit: 200,
-            value: 150,
+            value: 100,
          },
          opacity: {
             value: 0.0,
@@ -118,21 +117,29 @@ const IndexPage: React.FC<PageProps<void>> = () => {
    });
 
    useEffect(() => {
-      gsap.to('.container-logo-example', {
+      gsap.from('#loading', {
+         delay: 0.7,
+         opacity: 0,
+         duration: 2,
+      });
+      gsap.from('#containerLogo', {
          delay: 1.5,
          duration: 5,
-         scale: 1,
-         opacity: 1,
-         ease: 'back.out(1.7)',
+         scale: 0,
+         opacity: 0,
+         ease: "power2.inOut",
+         y: -50,
       });
-   }, [logoRef]);
+   }, []);
 
    return (
       <Fragment>
          <SEO title="Home" />
-         <Particles options={optionsParticles} />
-         <S.Container>
-            <S.ContainerLogo className="container-logo-example">
+         <div>
+            <Particles options={optionsParticles} />
+         </div>
+         <S.Container id="container">
+            <S.ContainerLogo id="containerLogo">
                <StaticImage
                   src="../images/zandome.png"
                   alt="Zandome"
@@ -140,7 +147,7 @@ const IndexPage: React.FC<PageProps<void>> = () => {
                   width={200}
                />
             </S.ContainerLogo>
-            <S.ContainerText>
+            <S.ContainerText id="loading">
                <span>
                   Comming Soon
                   <S.Dot>.</S.Dot>

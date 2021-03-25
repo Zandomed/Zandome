@@ -13,9 +13,6 @@ export const Container = styled.div`
 export const ContainerLogo = styled.div`
    max-width: 200px;
    margin-bottom: 1.45rem;
-   /* width: 250px; */
-   transform: scale(0);
-   opacity: 0;
 `;
 
 export const ContainerText = styled.div`
