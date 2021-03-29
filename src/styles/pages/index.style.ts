@@ -16,8 +16,13 @@ const AColorFillLogoZandome = keyframes`
 `;
 
 const AFadeLoadingText = keyframes`
+
+   from{
+      opacity: 0;
+   }
+
    to{
-      opacity: 1
+      opacity: 1;
    }
 `;
 
@@ -43,7 +48,7 @@ export const Container = styled.div`
    flex-direction: column;
 `;
 
-export const ContainerLogo = styled.div`
+export const WrapperLogo = styled.div`
    max-width: 200px;
    margin-bottom: 1.45rem;
 
@@ -61,11 +66,10 @@ export const ContainerLogo = styled.div`
    }
 `;
 
-export const ContainerText = styled.div`
+export const WrapperText = styled.div`
    margin-top: 2rem;
 
    > span {
-      opacity: 0;
       font-size: 25px;
       font-weight: bold;
       user-select: none;
@@ -91,4 +95,12 @@ export const Dot = styled.span`
    &:nth-child(3) {
       animation-delay: 0.4s;
    }
+`;
+
+export const WrapperRRSS = styled.div`
+   margin: 30px 0 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   animation: ${AFadeLoadingText} 2s ease 700ms both;
 `;
