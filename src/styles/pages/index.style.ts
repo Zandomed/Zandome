@@ -1,5 +1,38 @@
 import styled, { keyframes } from 'styled-components';
 
+const ADrawStrokeLogoZandome = keyframes`
+   to {
+     stroke-dashoffset: 0;
+     stroke-opacity:1;
+   }
+`;
+
+const AColorFillLogoZandome = keyframes`
+   to{
+      fill-opacity: 1;
+      stroke-width: 1px;
+      stroke-opacity: 0;
+   }
+`;
+
+const AFadeLoadingText = keyframes`
+   to{
+      opacity: 1
+   }
+`;
+
+const ABlinkDotLoadingText = keyframes`
+   0% {
+      opacity: .2;
+   }
+   20% {
+      opacity: 1;
+   }
+   100% {
+      opacity: .2;
+   }
+`;
+
 export const Container = styled.div`
    width: 100%;
    height: 100%;
@@ -13,37 +46,40 @@ export const Container = styled.div`
 export const ContainerLogo = styled.div`
    max-width: 200px;
    margin-bottom: 1.45rem;
+
+   path {
+      fill-opacity: 0;
+      stroke-width: 4px;
+      stroke: #cbcbcb;
+      stroke-opacity: 0.5;
+      stroke-dasharray: 1500;
+      stroke-dashoffset: 1600;
+      /* transition: all; */
+
+      animation: ${ADrawStrokeLogoZandome} 5s linear 700ms both,
+         ${AColorFillLogoZandome} 3s ease-out 4s both;
+   }
 `;
 
 export const ContainerText = styled.div`
    margin-top: 2rem;
 
    > span {
+      opacity: 0;
       font-size: 25px;
       font-weight: bold;
       user-select: none;
       -ms-user-select: none;
       -moz-user-select: none;
       -webkit-user-select: none;
-   }
-`;
-
-const blink = keyframes`
-   0% {
-      opacity: .2;
-   }
-   20% {
-      opacity: 1;
-   }
-   100% {
-      opacity: .2;
+      animation: ${AFadeLoadingText} 2s ease 700ms both;
    }
 `;
 
 export const Dot = styled.span`
    font-size: 30px;
    margin: 0 2px;
-   animation-name: ${blink};
+   animation-name: ${ABlinkDotLoadingText};
    animation-duration: 1.4s;
    animation-iteration-count: infinite;
    animation-fill-mode: both;

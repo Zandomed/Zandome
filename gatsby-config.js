@@ -53,7 +53,15 @@ module.exports = {
             environment: process.env.NODE_ENV
          },
       },
-      `gatsby-plugin-fontawesome-css`
+      `gatsby-plugin-fontawesome-css`,
+      {
+         resolve: "gatsby-plugin-react-svg",
+         options: {
+           rule: {
+             include: /\.svg$/ // See below to configure properly
+           }
+         }
+       }
       // this (optional) plugin enables Progressive Web App + Offline functionality
       // To learn more, visit: https://gatsby.dev/offline
       // `gatsby-plugin-offline`,
