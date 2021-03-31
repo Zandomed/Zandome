@@ -1,9 +1,20 @@
 import styled, { keyframes } from 'styled-components';
 
 const ADrawStrokeLogoZandome = keyframes`
-   to {
+   0% {
+      stroke-opacity: 0;
+   }
+   25% {
+      stroke-opacity: 1;
+   }
+   90% {
+     stroke-width: 6px;
+   }
+   100% {
      stroke-dashoffset: 0;
      stroke-opacity:1;
+     stroke-width: 4px;
+
    }
 `;
 
@@ -54,15 +65,15 @@ export const WrapperLogo = styled.div`
 
    path {
       fill-opacity: 0;
-      stroke-width: 4px;
+      stroke-width: 6px;
       stroke: #cbcbcb;
-      stroke-opacity: 0.5;
-      stroke-dasharray: 1500;
-      stroke-dashoffset: 1600;
+      stroke-opacity: 1;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1300;
       /* transition: all; */
 
-      animation: ${ADrawStrokeLogoZandome} 5s linear 700ms both,
-         ${AColorFillLogoZandome} 3s ease-out 4s both;
+      animation: ${ADrawStrokeLogoZandome} 3.5s linear 700ms both,
+      ${AColorFillLogoZandome} 3s ease-out 2.5s both;
    }
 `;
 
