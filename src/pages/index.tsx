@@ -21,7 +21,7 @@ const IndexPage: React.FC<PageProps<void>> = () => {
       },
       {
          icon: faEnvelope,
-         url: 'mailto:contact@zandome.com',
+         url: 'mailto:support@zandome.com',
       },
    ];
    return (
