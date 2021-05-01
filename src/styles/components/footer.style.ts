@@ -29,7 +29,7 @@ export const LinkRefRRSS = styled.a`
    cursor: pointer;
    transition: color 250ms ease-in-out;
    &:hover {
-      color: #00a0af;
+      color: #007297;
    }
 
    &:not(:last-child) {
