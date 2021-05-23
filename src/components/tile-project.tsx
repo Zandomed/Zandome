@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TileProjectStyle as S } from '../styles';
 
-export const TileProject: React.FC<any> = (props) => {
+const TileProject: React.FC<any> = (props) => {
    return (
       <S.WrapperTileProject>
          <S.WrapperImage>

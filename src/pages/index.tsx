@@ -1,29 +1,14 @@
 import React, { Fragment } from 'react';
 import { PageProps } from 'gatsby';
+
 import SEO from '../components/seo';
-import { IndexStyle as S, FooterStyle as FS } from '../styles';
-import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import SocialNetworks from '../components/social-networks';
+import { IndexStyle as S } from '../styles/index';
 
 //@ts-ignored
 import ZandomeLogo from '../images/zandome.svg';
 
 const IndexPage: React.FC<PageProps<void>> = () => {
-   const listRRSS = [
-      {
-         icon: faGithub,
-         url: 'https://github.com/Zandomed',
-      },
-
-      {
-         icon: faInstagram,
-         url: 'https://www.instagram.com/_zandome/',
-      },
-      {
-         icon: faEnvelope,
-         url: 'mailto:hi@zandome.com',
-      },
-   ];
    return (
       <Fragment>
          <SEO title="Home" />
@@ -40,11 +25,7 @@ const IndexPage: React.FC<PageProps<void>> = () => {
                </span>
             </S.WrapperText>
             <S.WrapperRRSS>
-               {listRRSS.map((RRSS, i: number) => (
-                  <FS.LinkRefRRSS key={i} href={RRSS.url} target="_blank">
-                     <FS.IconRRSS icon={RRSS.icon} />
-                  </FS.LinkRefRRSS>
-               ))}
+               <SocialNetworks />
             </S.WrapperRRSS>
          </S.Container>
       </Fragment>
