@@ -19,7 +19,7 @@ export const Footer: React.FC<any> = (props) => {
       },
       {
          icon: faEnvelope,
-         url: 'mailto:support@zandome.com',
+         url: 'mailto:hi@zandome.com',
       },
    ];
 

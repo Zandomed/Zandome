@@ -3,13 +3,7 @@
   "private": true,
   "description": "Web for Zandome",
   "version": "0.0.5",
-  "author": "Zandome <support@zandome.com>",
-  "contributors": [
-    {
-      "name": "Miguel Mendoza",
-      "email": "miguelemrdev@gmail.com"
-    }
-  ],
+  "author": "Miguel Mendoza <support@zandome.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
