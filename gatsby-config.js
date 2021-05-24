@@ -17,8 +17,29 @@ module.exports = {
       `gatsby-transformer-sharp`,
       `gatsby-plugin-styled-components`,
       `gatsby-plugin-fontawesome-css`,
-      'gatsby-plugin-sitemap',
       // 'gatsby-plugin-mdx', /
+      {
+         resolve: 'gatsby-plugin-sitemap',
+         options: {
+            query: `
+           {
+             allSitePage {
+               nodes {
+                 path
+               }
+             }
+           }
+         `,
+            resolveSiteUrl: () => `https://zandome.com`,
+            resolvePages: ({ allSitePage: { nodes: allPages } }) => allPages,
+            serialize: ({ path, modifiedGmt }) => {
+               return {
+                  url: path,
+                  lastmod: modifiedGmt,
+               };
+            },
+         },
+      },
       {
          resolve: `gatsby-source-filesystem`,
          options: {
@@ -49,9 +70,13 @@ module.exports = {
          },
       },
       {
-         resolve: 'gatsby-plugin-google-analytics',
+         resolve: 'gatsby-plugin-google-gtag',
          options: {
-            trackingId: process.env.GOOGLE_ANALYTICS_UID,
+            trackingIds: [process.env.GOOGLE_ANALYTICS_UID],
+            gtagConfig: {
+               optimize_id: 'OPT_CONTAINER_ID',
+               cookie_expires: 0,
+            },
          },
       },
       {
