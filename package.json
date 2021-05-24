@@ -2,7 +2,7 @@
   "name": "zandome",
   "private": true,
   "description": "Web for Zandome",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "Miguel Mendoza <support@zandome.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
