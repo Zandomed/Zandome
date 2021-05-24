@@ -3,7 +3,7 @@ require('dotenv').config({
    path: `.env.${process.env.NODE_ENV}`,
 });
 
-console.info(`Enviroment: ${process.env.NODE_ENV} - ${version}`)
+console.info(`Enviroment: ${process.env.NODE_ENV} - ${version}`);
 module.exports = {
    siteMetadata: {
       title: `Zandome`,
@@ -12,16 +12,29 @@ module.exports = {
    },
    plugins: [
       `gatsby-plugin-react-helmet`,
+      `gatsby-plugin-image`,
+      `gatsby-plugin-sharp`,
+      `gatsby-transformer-sharp`,
+      `gatsby-plugin-styled-components`,
+      `gatsby-plugin-fontawesome-css`,
+      'gatsby-plugin-sitemap',
+      // 'gatsby-plugin-mdx', /
       {
          resolve: `gatsby-source-filesystem`,
          options: {
             name: `images`,
-            path: `${__dirname}/src/images`,
+            path: `./src/images`,
          },
+         __key: 'images',
       },
-      `gatsby-plugin-image`,
-      `gatsby-transformer-sharp`,
-      `gatsby-plugin-sharp`,
+      {
+         resolve: 'gatsby-source-filesystem',
+         options: {
+            name: 'pages',
+            path: './src/pages/',
+         },
+         __key: 'pages',
+      },
       {
          resolve: `gatsby-plugin-manifest`,
          options: {
@@ -35,14 +48,10 @@ module.exports = {
             icon: `src/images/favicon.png`, // This path is relative to the root of the site.
          },
       },
-      `gatsby-plugin-styled-components`,
       {
-         resolve: `gatsby-plugin-google-gtag`,
+         resolve: 'gatsby-plugin-google-analytics',
          options: {
-            // You can add multiple tracking ids and a pageview event will be fired for all of them.
-            trackingIds: [
-               process.env.GOOGLE_ANALYTICS_UID, // Google Analytics / GA
-            ],
+            trackingId: process.env.GOOGLE_ANALYTICS_UID,
          },
       },
       {
@@ -51,20 +60,19 @@ module.exports = {
             dsn: process.env.SENTRY_ID,
             sampleRate: 1.0,
             release: version,
-            environment: process.env.NODE_ENV
+            environment: process.env.NODE_ENV,
          },
       },
-      `gatsby-plugin-fontawesome-css`,
       {
-         resolve: "gatsby-plugin-react-svg",
+         resolve: 'gatsby-plugin-react-svg',
          options: {
-           rule: {
-             include: /\.svg$/ // See below to configure properly
-           }
-         }
-       }
+            rule: {
+               include: /\.svg$/, // See below to configure properly
+            },
+         },
+      },
       // this (optional) plugin enables Progressive Web App + Offline functionality
       // To learn more, visit: https://gatsby.dev/offline
       // `gatsby-plugin-offline`,
-   ]
+   ],
 };
