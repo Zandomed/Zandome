@@ -2,7 +2,7 @@
   "name": "zandome",
   "private": true,
   "description": "Web for Zandome",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "author": "Miguel Mendoza <miguel@zandome.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -48,14 +48,14 @@
     "typescript": "^4.1.2"
   },
   "peerDependencies": {
-     "gatsby": "^3.0.0"
+    "gatsby": "^3.0.0"
   },
   "resolutions": {
-      "graphql": "^15.4.0",
-      "graphql-compose": "^7.25.0",
-      "webpack": "^5.24.2"
-   },
-   "keywords": [
+    "graphql": "^15.4.0",
+    "graphql-compose": "^7.25.0",
+    "webpack": "^5.24.2"
+  },
+  "keywords": [
     "gatsby"
   ],
   "license": "MIT",
