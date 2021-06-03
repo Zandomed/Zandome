@@ -1,9 +1,8 @@
-const { version } = require('./package.json');
+const packageInfo = require('./package.json');
 require('dotenv').config({
    path: `.env.${process.env.NODE_ENV}`,
 });
 
-console.info(`Enviroment: ${process.env.NODE_ENV} - ${version}`);
 module.exports = {
    siteMetadata: {
       title: `Zandome`,
@@ -84,7 +83,7 @@ module.exports = {
          options: {
             dsn: process.env.SENTRY_ID,
             sampleRate: 1.0,
-            release: version,
+            release: packageInfo.version,
             environment: process.env.NODE_ENV,
          },
       },
